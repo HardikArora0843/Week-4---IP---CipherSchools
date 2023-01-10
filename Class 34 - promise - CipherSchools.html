@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./134.js" defer>
+        // Promise
+console.log("script start");
+const bucket = ['coffee', 'chips','vegetables','salt','rice'];
+
+
+
+const friedRicePromise = new Promise((resolve,reject)=>{
+    if(bucket.includes("vegetables")&& bucket.includes("salt") && bucket.includes("rice")){
+        resolve({value:"friedrice"});
+    }else{
+        reject("could not do it");
+    }
+})
+
+// produce 
+
+
+
+// consume 
+// how to consume 
+
+friedRicePromise.then(
+    // jab promise resolve hoga 
+    (myfriedRice)=>{
+    console.log("lets eat ", myfriedRice);
+    }
+    ).catch(
+    (error)=>{
+        console.log(error)
+    })
+
+
+setTimeout(()=>{
+    console.log("hello from settimeout")
+},0)
+
+for(let i = 0; i <=100; i++){
+    console.log(Math.random(), i);
+}
+
+console.log("script end!!!!")
+    </script>
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Promise</h1>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="./140.js" defer>
+        const URL = "https://jsonplaceholder.typicode.com/posts";
+const xhr = new XMLHttpRequest();
+// console.log(xhr);
+// step1
+// console.log(xhr.readyState);
+xhr.open("GET",URL);
+// console.log(xhr.readyState);
+// xhr.onreadystatechange = function(){
+//     // console.log(xhr.readyState);
+//     if(xhr.readyState === 4){
+//         console.log(xhr)
+//         const response = xhr.response;
+//         const data = JSON.parse(response);
+//         console.log(typeof data);
+//     }
+// }
+
+xhr.onload = function(){
+    const response = xhr.response;
+    const data = JSON.parse(response);
+    console.log(data);
+}
+
+xhr.send();
+    </script> -->
+    <!-- <script src="./141.js" defer>
+        const URL = "https://jsonplaceholder.typicode.com/posts";
+
+const xhr = new XMLHttpRequest();
+
+xhr.open("GET", URL);
+xhr.onload = () => {
+    if(xhr.status >= 200 && xhr.status < 300) {
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        const id = data[3].id;
+        const xhr2 = new XMLHttpRequest();
+        const URL2 = `${URL}/${id}`
+        console.log(URL2);
+        xhr2.open("GET", URL2);
+        xhr2.onload = () => {
+            const data2 = JSON.parse(xhr2.response);
+            console.log(data2);
+        }
+        xhr2.send();
+    }
+   else{
+       console.log("something went wrong");
+   }
+}
+
+xhr.onerror = () => {
+    console.log("network error");
+}
+xhr.send();
+    </script> -->
+    <!-- <script src="./142.js" defer>
+        const URL = "https://jsonplaceholder.typicode.com/posts";
+
+function sendRequest(method, url) {
+    return new Promise(function(resolve, reject) {
+        const xhr  = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = function() {
+            if(xhr.status >= 200 && xhr.status < 300){
+                resolve(xhr.response);
+            }
+            else{
+                reject(new Error("Something Went wrong"));
+            }
+        }
+
+        xhr.onerror = function() {
+            reject(new Error("Something went wrong"));
+        }
+
+        xhr.send();
+    })
+}
+
+sendRequest("GET", URL)
+    .then(response => {
+        const data = JSON.parse(response);
+        // console.log(data)
+        return data;
+    })
+    .then(data=>{
+        const id = data[3].id;
+        return id;
+    })
+    .then(id=>{
+        const url = `${URL}/${id}ssss`;
+        return sendRequest("GET", url);
+    })
+    .then(newResponse => {
+        const newData = JSON.parse(newResponse);
+        console.log(newData);
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+
+    </script> -->
+    <!-- <script src="./144.js" defer>
+        // async await
+
+// fetch(URL)
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then(data => {
+//         console.log(data);
+//     })
+console.log("script start");
+const URL = "https://jsonplaceholder.typicode.com/posts";
+
+// async function getPosts(){
+//     const response = await fetch(URL);
+//     if(!response.ok){
+//         throw new Error("Something went wrong")
+//     }
+//     const data = await response.json();
+//     return data;
+// }
+
+
+const getPosts = async() =>{
+    const response = await fetch(URL);
+    if(!response.ok){
+        throw new Error("Something went wrong")
+    }
+    const data = await response.json();
+    return data;
+}
+
+// const myData = getPosts();
+// console.log(myData);
+
+getPosts()
+    .then((myData) => {
+        console.log(myData);
+    })
+    .catch(error =>{
+        console.log("inside catch")
+        console.log(error);
+    })
+
+
+console.log("script end ");
+
+    </script> -->
+    <script src="./144.js" defer>
+        // async await
+
+// fetch(URL)
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then(data => {
+//         console.log(data);
+//     })
+console.log("script start");
+const URL = "https://jsonplaceholder.typicode.com/posts";
+
+// async function getPosts(){
+//     const response = await fetch(URL);
+//     if(!response.ok){
+//         throw new Error("Something went wrong")
+//     }
+//     const data = await response.json();
+//     return data;
+// }
+
+
+const getPosts = async() =>{
+    const response = await fetch(URL);
+    if(!response.ok){
+        throw new Error("Something went wrong")
+    }
+    const data = await response.json();
+    return data;
+}
+
+// const myData = getPosts();
+// console.log(myData);
+
+getPosts()
+    .then((myData) => {
+        console.log(myData);
+    })
+    .catch(error =>{
+        console.log("inside catch")
+        console.log(error);
+    })
+
+
+console.log("script end ");
+
+    </script>
+    <title>XHR</title>
+</head>
+<body>
+    
+</body>
+</html>
